@@ -4,17 +4,17 @@
 function A = constructA(C,Sx, Sy, X, Y)
 
 %Get size of connection matrix C
-[jointsNum, memberNums] = size(C);
+[joints_num, member_nums] = size(C);
 
 %Initialize the upper and lower part of A (matrices for x and y force
 %components)
 
-Ax = zeros(jointsNum, memberNums);
-Ay = zeros(jointsNum, memberNums);
+Ax = zeros(joints_num, member_nums);
+Ay = zeros(joints_num, member_nums);
 
 % Calculate the force components for each member
 
-    for i = 1:memberNums
+    for i = 1:member_nums
     % Find the indices of the joints connected by the member by
     % creating a vector which stores the joint number that is connected to
     % that member

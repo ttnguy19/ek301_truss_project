@@ -1,8 +1,10 @@
 %This function returns the cost of the truss design
+%To be used in main.m; make sure they are in the same folder/directory
+
 function cost = trussCost(C, X, Y)
-[jointsNum, memberNums] = size(C);
+[joints_num, member_nums] = size(C);
 total_length = 0;
-  for i = 1:memberNums
+  for i = 1:member_nums
     % Find the indices of the joints connected by the member by
     % creating a vector which stores the joint number that is connected to
     % that member
@@ -18,5 +20,5 @@ total_length = 0;
         total_length = total_length + member_length;
   end
 
-  cost = 10* jointsNum + 1*total_length;
+  cost = 10* joints_num + 1*total_length;
 end

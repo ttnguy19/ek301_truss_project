@@ -25,6 +25,7 @@ T = invA * L;
 %Calculate truss cost
 cost = trussCost(C, X, Y);
 
+[max_Value,max_Index,length_of_member] = firstToBuckle(C,X,Y,T);
 
 %SECTION 2: OUTPUT OF RESULTS
 fprintf('EK301, section A4, Group 18: Thinh Nguyen, Emma Stone, Matthew Luponio \n')
@@ -44,6 +45,12 @@ for i=1:(length(T)-3)
     end
 end
 
+%Print out the first member to buckle, its expected buckling strength and
+%its length
+fprintf('First member to buckle: \n');
+fprintf('m%d with a length of %.3g in and an expected buckling strength of %.3g oz \n', max_Index,length_of_member,max_Value);
+
+
 %Print out reaction forces 
 fprintf('Reaction forces in oz \n');
 fprintf('Sx1: %.3g \n', T(length(T)-2));
@@ -52,8 +59,6 @@ fprintf('Sy2: %.3g \n', T(length(T)));
   
 %Print the cost of truss design
 fprintf('Cost of truss: $%.3g \n', cost);
-
-        
 
 
 
