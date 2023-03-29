@@ -25,6 +25,7 @@ T = invA * L;
 %Calculate truss cost
 cost = trussCost(C, X, Y);
 
+%Find first member to buckle
 [max_Value,max_Index,length_of_member] = firstToBuckle(C,X,Y,T);
 
 %SECTION 2: OUTPUT OF RESULTS
