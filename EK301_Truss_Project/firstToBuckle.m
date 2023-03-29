@@ -2,7 +2,7 @@
 %expected buckling strength and its length
 %To be used in main.m; make sure they are in the same folder/directory
 
-function [max_Value,max_Index, length_of_member] = firstToBuckle(C,X,Y,T)
+function [bucking_value,max_Index, length_of_member] = firstToBuckle(C,X,Y,T)
 
 %Create a vector that stores only the member that are in compression. If
 %they are in tension (positive), turns them into zero. If they are in
@@ -51,7 +51,7 @@ end
     [~, max_Index] = max(breaking_point_ratio);
     
     %Find the expected buckling strength
-    max_Value = compression_member(i) / (4338 * member_length_vector(max_Index) ^ (-2.125));
+    bucking_value = 4338 * member_length_vector(max_Index) ^ (-2.125);
     
     %Find the length of the first member to buckle
     length_of_member = member_length_vector(max_Index);
