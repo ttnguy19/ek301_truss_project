@@ -28,7 +28,7 @@ cost = trussCost(C, X, Y);
 %Find first member to buckle
 %[bucking_value,max_Index, length_of_member] = firstToBuckle(C,X,Y,T);
 
-[truss_max_load,critical_member_number, length_of_critical_member] = firstToBuckle2(C,X,Y,T,L);
+[truss_max_load,critical_member_number, length_of_critical_member] = firstToBuckle(C,X,Y,T,L);
 
 
 %SECTION 2: OUTPUT OF RESULTS
@@ -53,14 +53,6 @@ end
 %its length
 fprintf('First member to buckle: \n');
 fprintf('m%d with a length of %.3g in and an expected buckling strength of %.3g oz \n', critical_member_number,length_of_critical_member,truss_max_load);
-
-fprintf('%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n \n');
-
-%{
-fprintf('m%d with a length of %.3g in and a maximum theoretical load of %.3g oz \n', bucking_member_num,length_of_member,maximum_theoretical_load );
-
-fprintf('%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n \n');
-%}
 
 %Print out reaction forces 
 fprintf('Reaction forces in oz \n');
