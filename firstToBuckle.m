@@ -2,7 +2,7 @@
 %expected buckling strength and its length
 %To be used in main.m; make sure they are in the same folder/directory
 
-function [truss_max_load,critical_member_number, length_of_critical_member] = firstToBuckle2(C,X,Y,T,L);
+function [truss_max_load,critical_member_number, length_of_critical_member] = firstToBuckle(C,X,Y,T,L);
 
 %create a vector that only stores the tension of the member in compression,
 %if member is in tension store its tension as 0
