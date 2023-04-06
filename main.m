@@ -69,7 +69,7 @@ fprintf('Cost of truss: $%.3g \n', cost);
 
 load_to_cost = truss_max_load/cost;
 %Print the cost of truss design
-fprintf('Load-to-cost ratio: $%.3g \n',load_to_cost );
+fprintf('Load-to-cost ratio: %.3g \n',load_to_cost );
 
 
 
