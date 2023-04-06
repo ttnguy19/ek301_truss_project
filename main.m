@@ -5,7 +5,7 @@
 %SECTION 1: CALCULATION
 
 %Load data from input file
-inputFile = 'SampleTrussProblem_ThinhEmmaMatthew.mat';
+inputFile = 'matts_truss_design.mat';
 data = load(inputFile);
 
 C = data.C;
@@ -53,7 +53,8 @@ end
 %Print out the first member to buckle, its expected buckling strength and
 %its length
 fprintf('First member to buckle: \n');
-fprintf('m%d with a length of %.3g in and an expected buckling strength of %.3g oz \n', critical_member_number,length_of_critical_member,truss_max_load);
+expected_buckling_strength = 4338 * (length_of_critical_member ^ (-2.125));
+fprintf('m%d with a length of %.3g in and an expected buckling strength of %.3g oz \n', critical_member_number,length_of_critical_member,expected_buckling_strength);
 
 %Print out reaction forces 
 fprintf('Reaction forces in oz \n');
@@ -61,6 +62,8 @@ fprintf('Sx1: %.3g \n', T(length(T)-2));
 fprintf('Sy1: %.3g \n', T(length(T)-1));
 fprintf('Sy2: %.3g \n', T(length(T)));
   
+%Print the maximum theoretical truss load
+fprintf('The maximum theoretical truss load is %.3g oz \n', truss_max_load);
 %Print the cost of truss design
 fprintf('Cost of truss: $%.3g \n', cost);
 
