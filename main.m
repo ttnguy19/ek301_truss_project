@@ -5,7 +5,7 @@
 %SECTION 1: CALCULATION
 
 %Load data from input file
-inputFile = 'matts_truss_design.mat';
+inputFile = 'SampleTrussProblem_ThinhEmmaMatthew.mat';
 data = load(inputFile);
 
 C = data.C;
