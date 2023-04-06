@@ -32,6 +32,7 @@ cost = trussCost(C, X, Y);
 
 
 %SECTION 2: OUTPUT OF RESULTS
+
 fprintf('EK301, section A4, Group 18: Thinh Nguyen, Emma Stone, Matthew Luponio \n')
 
 load_index = find(L);
@@ -63,6 +64,9 @@ fprintf('Sy2: %.3g \n', T(length(T)));
 %Print the cost of truss design
 fprintf('Cost of truss: $%.3g \n', cost);
 
+load_to_cost = truss_max_load/cost;
+%Print the cost of truss design
+fprintf('Load-to-cost ratio: $%.3g \n',load_to_cost );
 
 
 

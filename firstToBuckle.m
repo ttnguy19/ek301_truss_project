@@ -2,7 +2,7 @@
 %expected buckling strength and its length
 %To be used in main.m; make sure they are in the same folder/directory
 
-function [truss_max_load,critical_member_number, length_of_critical_member] = firstToBuckle2(C,X,Y,T,L)
+function [truss_max_load,critical_member_number, length_of_critical_member] = firstToBuckle2(C,X,Y,T,L);
 
 %create a vector that only stores the tension of the member in compression,
 %if member is in tension store its tension as 0
@@ -14,7 +14,6 @@ for i=1:length(compression_member_vector)
         compression_member_vector(i) = T(i);
     end
 end
-
 
 %Find the magnitude of the live load applied
 load_index = find(L);
@@ -44,12 +43,12 @@ member_length_vector = zeros(length(compression_member_vector),1);
      if compression_member_vector(i) ==0
          continue
      else
-     rc_value=W_l_value/compression_member_vector(i);
+     rc_value=compression_member_vector(i)/W_l_value;
      member_rc_value_vector(i) =rc_value;
      end
  end
 
- 
+ member_rc_value_vector
  %Find the buckling force for each member based on its length, only care
  %about member in comporession
  member_buckling_force_vector = zeros(length(member_length_vector),1);
@@ -57,19 +56,20 @@ member_length_vector = zeros(length(compression_member_vector),1);
      buckling_force = 4338 * (member_length_vector(i) ^ (-2.125));
      member_buckling_force_vector(i) = buckling_force;
  end
- 
+
  %Find the maximum theoretical load for each member, only care
  %about member in comporession. For tension force, set its max load value
  %to NaN
  member_max_load_vector = zeros(length(member_buckling_force_vector),1);
  for i=1:length(member_max_load_vector)
-     if compression_member_vector(i) ==0
+     if (compression_member_vector(i) ==0)
          member_max_load_vector(i) = NaN;
      else
      max_load = (member_buckling_force_vector(i)*-1)/ member_rc_value_vector(i);
      member_max_load_vector(i) = max_load;
      end
  end
+ 
 
  %loop through the member_max_load_vector, the smallest value that is not
  %NaN will correspond to the critical member
