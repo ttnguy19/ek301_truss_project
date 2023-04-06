@@ -48,7 +48,6 @@ member_length_vector = zeros(length(compression_member_vector),1);
      end
  end
 
- member_rc_value_vector
  %Find the buckling force for each member based on its length, only care
  %about member in comporession
  member_buckling_force_vector = zeros(length(member_length_vector),1);
